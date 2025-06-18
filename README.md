@@ -37,14 +37,30 @@ The pipeline follows the ELT paradigm:
 ## 📁 Project Structure
 
 ```bash
-netflix-DBT-Snowflake/
-├── models/
-│   ├── raw/              # Source models from Snowflake tables
-│   ├── staging/          # Cleaned models with standardized formats
-│   └── development/      # Final models with business logic
-├── seeds/                # Static lookup CSVs
-├── tests/                # Custom dbt tests
-├── macros/               # Reusable SQL + Jinja logic
-├── dbt_project.yml       # DBT project config
-├── packages.yml          # DBT dependency packages
-└── README.md             # Project documentation
+├── analyses/ # Ad-hoc analysis files
+│ └── movie_analysis.sql
+├── macros/ # Reusable macros
+├── models/ # DBT models
+│ ├── dim/ # Dimension tables
+│ │ ├── dim_genome_tags.sql
+│ │ ├── dim_movies_tags.sql
+│ │ ├── dim_movies.sql
+│ │ └── dim_users.sql
+│ ├── fct/ # Fact tables
+│ │ ├── fct_genome_scores.sql
+│ │ └── fct_ratings.sql
+│ └── mart/ # Final business-ready layer
+|   └── mart_movie_release.sql
+├── seeds/ # Seed data
+│ └── seed_movie_release_date.csv
+├── snapshots/ # Snapshots for SCDs
+|   └── snap_tags.sql 
+├── staging/ # Raw layer staging
+│ ├── schema.yml
+│ └── sources.yml
+├── target/ # DBT build artifacts (auto-generated)
+├── tests/ # Custom DBT tests
+├── dbt_project.yml # DBT project configuration
+├── package-lock.yml # Package lock
+├── packages.yml # DBT package dependencies
+└── README.md # Project documentation
