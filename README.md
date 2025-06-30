@@ -30,7 +30,7 @@ The pipeline follows the ELT paradigm:
   - Auto-generated dbt **documentation & lineage graphs**
 
 - **Visualize**:
-  - Connect Snowflake models to **Power BI / Looker Studio / Tableau** for dashboards
+  - Connect Snowflake models to **Power BI / Looker Studio / Tableau** for dashboards.
 
 ---
 
